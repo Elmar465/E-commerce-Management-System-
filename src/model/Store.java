@@ -10,7 +10,7 @@ import static model.Admin.updateProduct;
 public class Store {
     List<String> productList;
     List<String> users;
-
+    static String choice;
 
     //Default
     public Store(){
@@ -66,27 +66,25 @@ public class Store {
          Order order =  new Order();
          Cart cart=  new Cart();
          System.out.print("Enter name:");
-         cusotmer.name =  scanner.nextLine();
-         System.out.println("Are you registering as a Customer ?");
-         String choice =  scanner.nextLine();
-         if(choice.equals("yes")){
+         User.name =  scanner.nextLine();
+         if(User.name.equals("John Doe")){
              cusotmer.getRole();
-             order.calculateTotalAmount();
              System.out.print("You want to checkout:");
              choice  = scanner.nextLine();
              if(choice.equals("yes")){
                 cart.checkOut();
              } else  {
-                 addProduct();
+                 registerUser();
              }
-         } else if (choice.equals("no")){
-             admin.name = cusotmer.name;
+         } else if (User.name.equals("Sarah Smith")){
+             User.name = cusotmer.name;
              admin.getRole();
              System.out.println("Which operation do you want to do ?");
              System.out.println("1.Add Product");
              System.out.println("2.Remove Product");
              System.out.println("3.Update Product");
-             System.out.println("4.Exit");
+             System.out.println("4.Order History");
+             System.out.println("5.Exit");
              int option = scanner.nextInt();
              switch (option){
                  case 1:
@@ -99,6 +97,8 @@ public class Store {
                      updateProduct();
                     break;
                  case 4:
+                     order.calculateTotalAmount();
+                 case 5:
                      System.exit(0);
                  default:
                      System.out.println("Sorry wrong input try again");

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class User {
      Integer user_id;
-     String name;
+     static String name;
      String email;
      Integer phoneNumber;
 

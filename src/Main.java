@@ -7,7 +7,6 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Welcome to the E-commerce Management System!");
         Store store = new Store();
-        store.addProduct();
         store.registerUser();
     }
 }

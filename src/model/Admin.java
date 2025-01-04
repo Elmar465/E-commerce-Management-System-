@@ -10,7 +10,7 @@ public class Admin extends User{
 
     public Admin(String name) {
         super(name);
-        this.name = name;
+
     }
     public Admin(){
         super();
@@ -19,7 +19,7 @@ public class Admin extends User{
 
     @Override
     public  void getRole() {
-        System.out.println("User: " + this.name + " registered as an Admin.");
+        System.out.println("User: " + name + " registered as an Admin.");
     }
     public void addProduct(){
         Product product1 = new Product();
@@ -57,14 +57,17 @@ public class Admin extends User{
 
     public static void updateProduct(){
         Product product =  new Product();
+        product.setStockQuantity(10);
+        product.setName("Laptop");
         Scanner scanner =  new Scanner(System.in);
-        System.out.println("Enter the product name which you want to update");
-        product.setName(scanner.nextLine());
-        if(product.getName() != null && !product.getName().isEmpty()){
-            System.out.println("What name  you want to change this product " + product.getName());
-            product.setName(scanner.nextLine());
-            System.out.println(product.getName() + " is updated");
-        }
+        System.out.println(name + " (Admin)" + " updates stock for " + product.getName() + " to " + product.getStockQuantity() + " units" );
+//        System.out.println("Enter the product name which you want to update");
+//        product.setName(scanner.nextLine());
+//        if(product.getName() != null && !product.getName().isEmpty()){
+//            System.out.println("What name  you want to change this product " + product.getName());
+//            product.setName(scanner.nextLine());
+//            System.out.println(product.getName() + " is updated");
+//        }
     }
 
 }
